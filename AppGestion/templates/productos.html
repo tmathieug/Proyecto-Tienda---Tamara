@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body class="w3-sand">
+
+<div class="w3-container">
+  <h2>Gestión de Productos</h2>
+
+  <form action="{% url 'insertar_producto' %}" method="post">{% csrf_token %} 
+    <input type="number" name="id" id="id" placeholder="ID">
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+    <input type="text" name="imagen1" id="imagen1" placeholder="Imagen">
+    <input type="number" name="precio" id="precio" min="0" step="0.1" placeholder="Precio">
+    <input type="submit" value="Añadir">
+</form>
+<br><br>
+
+  <table class="w3-table-all w3-card-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in object_list %}
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.imagen1}}</td>
+                <td>{{c.precio}}</td>
+                <td>
+                  <a href="{% url 'modificar_producto' c.id %}" class="">Editar</a>
+                  <a href="{% url 'eliminar_producto' c.id %}" class="">Eliminar</a>
+              </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <br><br>
+  <a href="javascript:history.back()"> Volver Atrás</a>
+
+</div>
+
+</body>
+</html> 
+
+
+{% endblock %}
+

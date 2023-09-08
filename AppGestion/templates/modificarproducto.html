@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="w3-container">
+<body class="w3-sand">
+    <h2>Editar Producto</h2>
+    <form action="{% url 'modificar_producto' producto.id %}" method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ producto.nombre }}" required> <br><br>
+        <label for="imagen1">Imagen:</label>
+        <input type="text" name="imagen1" value="{{ producto.imagen1 }}"><br><br>
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" step="0.01" value="{{ producto.precio }}" required><br><br>
+        <button type="submit">Guardar Cambios</button>
+    </form> <br><br>
+    <a href="{% url 'listar_productos' %}" class="button-style">Volver a la lista de productos</a>
+</body>
+</div>
+
+<a href="javascript:history.back()"> Volver Atrás</a>
+
+{% endblock %}
+

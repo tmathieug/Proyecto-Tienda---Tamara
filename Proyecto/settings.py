@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8qrpfi**_ypo#*9-u!sln*kx$j!kiw%241zjgu5l0o*0*ks!q4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tamaramath.pythonanywhere.com']
 
 
 # Application definition
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'Proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tiendas',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'tamaramath$info',
+        'USER': 'tamaramath',
+        'PASSWORD': 'bdtam1991',
+        'HOST': 'tamaramath.mysql.pythonanywhere-services.com',
         'PORT': '3306'
     }
 }
